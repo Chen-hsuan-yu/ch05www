@@ -19,5 +19,11 @@ from mysite import views    # 新增這一行
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.homepage),  # 還有這一行
+    path('', views.homepage, {'testmode': 'YES'}),
+    path('hello/', views.homepage),  # 還有這一行
+    path('about/', views.about),
+    path('about/<int:author_no>/', views.about),  # 新增
+    path('list/<int:yr>/<int:mon>/<int:day>/', views.listing),  # 修改
+    path('post/<int:yr>/<int:mon>/<int:day>/<int:post_num>/', views.post),
+    path('post01/<int:yr>/<int:mon>/<int:day>/<int:post_num>/', views.post01, name='post-url'),
 ]
